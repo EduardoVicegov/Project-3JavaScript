@@ -162,12 +162,12 @@ function clokHandler() {
 
 /* <div class="product-item">
 <img src="./assets/products/img6.png" alt="AstroFiction">
-<div class="product-details">
-   <h3 class="product-title">AstroFiction</h3>
-   <p class="product-author">John Doe</p>
-   <p class="price-title">Price</p>
-   <p class="product-price">$ 49.90</p>
-</div>
+    <div class="product-details">
+        <h3 class="product-title">AstroFiction</h3>
+        <p class="product-author">John Doe</p>
+        <p class="price-title">Price</p>
+        <p class="product-price">$ 49.90</p>
+    </div>
 </div> */
 
 function productsHandler () {
@@ -186,12 +186,43 @@ function productsHandler () {
        productImage.src = product.image;
        productImage.alt = "Image for " + product.title;
 
+       
+
+
+       // Create the product details section
+       let productDetails = document.createElement("div");
+       productDetails.classList.add("product-details");
+
+        // Create product title, author, price-title and price
+        let productTitle = document.createElement("h3");
+        productTitle.classList.add("product-title")
+        productTitle.textContent = product.title;
+
+        let productAuthor = document.createElement("p");
+        productAuthor.classList.add("product-author")
+        productAuthor.textContent = product.author;
+
+        let priceTitle = document.createElement("p");
+        priceTitle.classList.add("price-title")
+        priceTitle.textContent = "Price";
+        
+        let productPrice = document.createElement("p");
+        productPrice.classList.add("product-price")
+        productPrice.textContent = product.price > 0 ? "$" + product.price.toFixed(2) : "Free";
+
+        // Append the product details
+        productDetails.append(productTitle);
+        productDetails.append(productAuthor);
+        productDetails.append(priceTitle);
+        productDetails.append(productPrice);
+
+       
         // Add all child HTML elements of the product
-       productElm.append(productImage);
+        productElm.append(productImage);
+        productElm.append(productDetails);
 
         // Add complete individual product to the product section
-       productsSection.append(productElm);
-
+        productsSection.append(productElm);
 
 
     });

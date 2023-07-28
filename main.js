@@ -163,6 +163,15 @@ function clokHandler() {
 function productsHandler () {
 
     let productsSection = document.querySelector(".products-area");
+    let freeProducts = products.filter(function(item){
+        return item.price <= 0;
+    });
+    let paidProducts = products.filter(function(item){
+        return item.price > 0;
+    });
+
+    console.log("free:", freeProducts);
+    console.log("paid:", paidProducts);
 
 // Run a loop through the products and create an HTML element ("product-item") for each of them
     products.forEach(function(product, index){

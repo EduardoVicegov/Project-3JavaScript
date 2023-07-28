@@ -160,16 +160,6 @@ function clokHandler() {
 
 // Products Section
 
-/* <div class="product-item">
-<img src="./assets/products/img6.png" alt="AstroFiction">
-    <div class="product-details">
-        <h3 class="product-title">AstroFiction</h3>
-        <p class="product-author">John Doe</p>
-        <p class="price-title">Price</p>
-        <p class="product-price">$ 49.90</p>
-    </div>
-</div> */
-
 function productsHandler () {
 
     let productsSection = document.querySelector(".products-area");
@@ -185,9 +175,6 @@ function productsHandler () {
        let productImage = document.createElement("img");
        productImage.src = product.image;
        productImage.alt = "Image for " + product.title;
-
-       
-
 
        // Create the product details section
        let productDetails = document.createElement("div");
@@ -226,6 +213,9 @@ function productsHandler () {
 
 
     });
+
+    let totalProducts = products.length;
+    document.querySelector(".products-filter label[for=all] span.product-amount").textContent = totalProducts;
 }
 
 // Page Load
